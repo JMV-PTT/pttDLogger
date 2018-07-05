@@ -1,0 +1,52 @@
+{% extends 'base_layout.html' %}
+{% load static from staticfiles %}
+
+{% block content %}
+<!-- <link rel="stylesheet" href="{% static 'styles.css' %}"> -->
+<style>
+table, td, th {
+    border: 1px solid black;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    /* color: white; */
+}
+
+tr:nth-child(even) {
+    /* background-color: #dddddd; */
+    background-color: gray;
+    color: black;
+}
+
+tr:nth-child(odd) {
+    color: black;
+}
+
+</style>
+
+<h3>Data logger</h3>
+  <table>
+    <tr>
+      <th> idKey </th>
+      <th> Temperature </th>
+      <th> Date </th>
+    </tr>
+  {% for log in logs %}
+  <tr>
+    <td><a href = "{% url 'tlog:dataDetail' slug=log.slug %}">{{log.idKey}}</a></td>
+    <!-- <td> {{log.idKey}} </td> -->
+    <td> {{log.temp}} </td>
+    <td> {{log.date}} </td>
+  </tr>
+  {% endfor %}
+  </table>
+{% endblock %}
