@@ -1,31 +1,44 @@
-{% load static from staticfiles %}
+<!-- {% load static from staticfiles %} -->
+{% load staticfiles %}
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title>Temperature logger</title>
-    <!-- <link rel="stylesheet" href="{% static 'styles.css' %}"> -->
-    <link href="static/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- <link rel="stylesheet" href="{% static 'myapp/style.css' %}" /> -->
+    <!-- <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}"> -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- <link href="static/bootstrap.min.css" rel="stylesheet" media="screen"> -->
   </head>
   <body>
     <h1><a href = "{% url 'homeV' %}"><img src = "{% static 'ptt.png' %}"/></a></h1>
+    <h1>Data monitor PTT I+D</h1>
     <nav>
       <ul>
-        <li>
-          <form class="logout-link" action="{% url 'accounts:logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-          </form>
-        </li>
+        {% if user.is_authenticated %}
+          <li>
+            <h3><form class="logout-link" action="{% url 'accounts:logout' %}" method="post"></h3>
+              {% csrf_token %}
+              <button type="submit">Logout</button>
+            </form>
+          </li>
+          <li><a href="{% url 'articles:create' %}">New Article</a></li>
+        {% else %}
+          <li><a href="{% url 'accounts:login' %}">Login</a></li>
+          <li><a href="{% url 'accounts:signup' %}">Signup</a></li>
+        {% endif %}
       </ul>
     </nav>
-    <h2>Data monitor PTT I+D</h2>
+
     <a href="{% url 'tlog:dataLog' %}">loggs</a>
     <a href="{% url 'articles:list' %}">articles</a>
       <div class "wrapper">
         {% block content %}
         {% endblock %}
       </div>
-    </body>
+  </body>
 </html>

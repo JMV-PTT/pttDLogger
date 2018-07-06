@@ -1,3 +1,26 @@
+body{
+    background-color: #0f121f;
+    color: #fff;
+}
+
+h1 {
+    color:white;
+    text-align: center;
+}
+
+h2 {
+    color:black;
+    text-align: center;
+    background-color: white;
+}
+
+
+form {
+    text-align: center;
+    background-color: white;
+    color:black;
+}
+
 table, td, th {
     border: 1px solid black;
 }
@@ -23,28 +46,5 @@ tr:nth-child(even) {
 
 tr:nth-child(odd) {
     color: black;
-}
-
-body{
-    /* background-color: #0f121f; */
     background-color: white;
-    /* background-image: url(/static/bkg.jpg); */
-    background-repeat-y: no-repeat;
-    /* color: #fff; */
-}
-
-body *{
-    font-family: arial, sans-serif;
-    /* color: white; */
-}
-
-h1, h2, h3, h4, h5{
-    font-weight: normal;
-    margin: 0;
-    color: black;
-}
-
-a, a:hover, a:visited{
-    color: #fff;
-    text-decoration: none;
 }

@@ -14,3 +14,12 @@ def log_d(request, slug):
     # return HttpResponse(slug)
     dLogs = Logger.objects.all().filter(slug=slug).order_by('date');
     return render(request, 'tlog/log_list.html', {'logs':dLogs})
+
+def regD(request):
+    # return HttpResponse(slug)
+    # data = Logger.objects.all().filter(slug=slug).order_by('date');
+    idKey = request.GET.get('K', '')
+    temp = request.GET.get('D', '')
+    logD = Logger(idKey=idKey,slug=idKey,temp=temp)
+    logD.save()
+    return HttpResponse('Data uploaded')
