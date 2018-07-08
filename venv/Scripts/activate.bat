@@ -1,5 +1,5 @@
 @echo off
-set "VIRTUAL_ENV=C:\Users\ID\Documents\Projects\djangoT\venv"
+set "VIRTUAL_ENV=C:\Users\JAVIER~1\DOCUME~1\PYTHON~1\PTTDLO~1\venv"
 
 if defined _OLD_VIRTUAL_PROMPT (
     set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
